@@ -16,7 +16,7 @@ moshi                          = "1.15.2"
 moshiCon                       = "2.9.0"
 retrofit                       = "2.11.0"
 okHttp                         = "4.12.0"
-glide                          = "4.16.0"
+glide                          = "1.0.0-beta01"
 gson                           = "2.12.1"
 
 
@@ -39,7 +39,7 @@ composeMaterialDesign    = { module = "androidx.compose.material:material"}
 navigation               = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 
 gson                     = {module = "com.google.code.gson:gson", version.ref = "gson"}
-glide                    = {module = "com.github.bumptech.glide:glide", version.ref = "glide"}
+glide                    = {module = "com.github.bumptech.glide:compose", version.ref = "glide"}
 hiltAndroid              = {module = "com.google.dagger:hilt-android", version.ref = "hilt"}
 hiltCompiler             = {module = "com.google.dagger:hilt-compiler", version.ref = "hilt"}
 hiltNavigationCompose    = { module = "androidx.hilt:hilt-navigation-compose", version = "1.2.0" }

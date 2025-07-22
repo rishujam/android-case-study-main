@@ -12,5 +12,7 @@ data class DealDto(
     val fulfillment: String,
     val availability: String,
     @Json(name = "regular_price")
-    val regularPrice: PriceDto
+    val regularPrice: PriceDto,
+    @Json(name = "sale_price")
+    val salePrice: PriceDto? = null
 )

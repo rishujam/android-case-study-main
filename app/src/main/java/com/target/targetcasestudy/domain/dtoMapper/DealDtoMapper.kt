@@ -8,15 +8,19 @@ import com.target.targetcasestudy.domain.model.Price
 
 fun DealsResponse.toDeals(): List<Deal> {
     return this.deals.map {
+        val salePrice = it.salePrice?.let { salePrice ->
+            Price(displayString = salePrice.displayString)
+        }
         Deal(
             id = it.id,
             title = it.title,
             aisle = it.aisle,
             description = it.description,
-            regularPrice = Price(
-                amountInCents = it.regularPrice.amountInCents,
-                displayString = it.regularPrice.displayString
-            )
+            regularPrice = Price(displayString = it.regularPrice.displayString),
+            salePrice = salePrice,
+            imageUrl = it.imageUrl,
+            availability = it.availability,
+            fulfillment = it.fulfillment
         )
     }
 }
@@ -29,14 +33,8 @@ fun DealResponse.toDealDetail(): DealDetail {
         fulfillment = this.fulfillment,
         id = this.id,
         imageUrl = this.imageUrl,
-        regularPrice = Price(
-            amountInCents = this.regularPrice.amountInCents,
-            displayString = this.regularPrice.displayString
-        ),
-        salePrice = Price(
-            amountInCents = this.salePrice.amountInCents,
-            displayString = this.salePrice.displayString
-        ),
+        regularPrice = Price(displayString = this.regularPrice.displayString),
+        salePrice = Price(displayString = this.salePrice.displayString),
         title = this.title
     )
 }
