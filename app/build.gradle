@@ -56,6 +56,8 @@ dependencies {
   implementation libs.androidXUITooling
   implementation libs.composeMaterialDesign
 
+  implementation libs.navigation
+
   implementation libs.retrofit
   implementation libs.retrofitRx2Adapter
   implementation libs.okHttp
@@ -64,6 +66,8 @@ dependencies {
   implementation libs.gson
 
   implementation libs.moshi
+  implementation libs.moshiConverter
+  implementation libs.moshi.kotlin
   ksp libs.moshiKotlinCodeGen
 
   implementation libs.jackson
@@ -72,6 +76,7 @@ dependencies {
   implementation libs.glide
 
   implementation libs.hiltAndroid
+  implementation libs.hiltNavigationCompose
   ksp libs.hiltCompiler
 
   // Testing
