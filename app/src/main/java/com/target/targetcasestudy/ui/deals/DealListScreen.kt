@@ -49,7 +49,7 @@ fun DealListScreen(
     state: DealListState,
     navController: NavController
 ) {
-    Column (modifier = Modifier.fillMaxWidth()) {
+    Column (modifier = modifier) {
         Text(
             modifier = Modifier.padding(top = 12.dp, start = 8.dp),
             text = "List",

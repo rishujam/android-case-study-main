@@ -47,6 +47,7 @@ dependencies {
   implementation libs.androidXActivityCompose
   implementation libs.androidXConstraintLayout
   implementation libs.androidXRecyclerView
+  implementation libs.accompanistSystemUi
 
   //Compose
   implementation platform(libs.composeBom)

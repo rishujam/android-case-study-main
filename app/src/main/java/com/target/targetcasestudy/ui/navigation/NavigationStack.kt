@@ -1,6 +1,10 @@
 package com.target.targetcasestudy.ui.navigation
 
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -12,13 +16,15 @@ import com.target.targetcasestudy.ui.deals.DealListScreen
 import com.target.targetcasestudy.ui.deals.DealListViewModel
 
 @Composable
-fun NavigationStack(startDestination: Screen) {
+fun NavigationStack(
+    startDestination: Screen
+) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = startDestination.route) {
         composable(route = Screen.DealList.route) {
             val detailListViewModel: DealListViewModel = hiltViewModel()
-            DealListScreen(
+            DealListScreen(,
                 navController = navController,
                 state = detailListViewModel.state
             )
