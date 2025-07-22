@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.ui
+package com.target.targetcasestudy.ui.deals
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

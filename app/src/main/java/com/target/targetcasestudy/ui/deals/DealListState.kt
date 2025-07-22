@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.ui
+package com.target.targetcasestudy.ui.deals
 
 import com.target.targetcasestudy.domain.Result
 import com.target.targetcasestudy.domain.model.Deal

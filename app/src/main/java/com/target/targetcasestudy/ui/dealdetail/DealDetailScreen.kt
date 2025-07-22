@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.ui
+package com.target.targetcasestudy.ui.dealdetail
 
 import androidx.compose.runtime.Composable
 
