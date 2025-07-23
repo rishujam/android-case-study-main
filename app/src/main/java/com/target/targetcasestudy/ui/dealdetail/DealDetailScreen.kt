@@ -1,6 +1,8 @@
 package com.target.targetcasestudy.ui.dealdetail
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
@@ -94,70 +97,86 @@ fun DealDetailScreen(state: DealDetailState) {
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun DetailSuccessState(detail: DealDetail) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-            .verticalScroll(rememberScrollState())
-    ) {
-        GlideImage(
-            contentScale = ContentScale.Crop,
-            contentDescription = "product_image",
-            model = detail.imageUrl,
-            modifier = Modifier.size(328.dp).clip(RoundedCornerShape(8.dp))
-        )
-        Spacer(modifier = Modifier.height(24.dp))
-        Text(
-            text = detail.title,
-            fontFamily = RobotoFontFamily,
-            fontWeight = FontWeight(400),
-            fontSize = 18.sp,
-            color = Color.Black
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
-            Text(
-                text = detail.salePrice?.displayString ?: detail.regularPrice.displayString,
-                color = ColorPrimaryDark,
-                fontSize = 20.sp,
-                fontFamily = RobotoFontFamily,
-                fontWeight = FontWeight(700)
+    Column(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize(1f)
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState())
+        ) {
+            GlideImage(
+                contentScale = ContentScale.Crop,
+                contentDescription = "product_image",
+                model = detail.imageUrl,
+                modifier = Modifier.size(328.dp).clip(RoundedCornerShape(8.dp))
             )
+            Spacer(modifier = Modifier.height(24.dp))
             Text(
-                modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
-                text = "reg. ${detail.regularPrice.displayString}",
-                color = GrayDarkColor,
+                text = detail.title,
+                fontFamily = RobotoFontFamily,
+                fontWeight = FontWeight(400),
+                fontSize = 18.sp,
+                color = Color.Black
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
+                Text(
+                    text = detail.salePrice?.displayString ?: detail.regularPrice.displayString,
+                    color = ColorPrimaryDark,
+                    fontSize = 20.sp,
+                    fontFamily = RobotoFontFamily,
+                    fontWeight = FontWeight(700)
+                )
+                Text(
+                    modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
+                    text = "reg. ${detail.regularPrice.displayString}",
+                    color = GrayDarkColor,
+                    fontSize = 12.sp,
+                    fontFamily = RobotoFontFamily,
+                    fontWeight = FontWeight(400)
+                )
+            }
+            Text(
+                text = detail.fulfillment,
+                color = GrayColor,
                 fontSize = 12.sp,
                 fontFamily = RobotoFontFamily,
                 fontWeight = FontWeight(400)
             )
+            Spacer(modifier = Modifier.height(8.dp))
+            Divider()
+            Spacer(modifier = Modifier.height(16.dp))
+            Divider()
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Product Details",
+                color = GrayDarkColor,
+                fontSize = 18.sp,
+                fontFamily = RobotoFontFamily,
+                fontWeight = FontWeight(700)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = detail.description,
+                color = GrayMediumColor,
+                fontSize = 16.sp,
+                fontFamily = RobotoFontFamily,
+                fontWeight = FontWeight(400)
+            )
         }
-        Text(
-            text = detail.fulfillment,
-            color = GrayColor,
-            fontSize = 12.sp,
-            fontFamily = RobotoFontFamily,
-            fontWeight = FontWeight(400)
-        )
-        Spacer(modifier = Modifier.height(8.dp))
         Divider()
-        Spacer(modifier = Modifier.height(16.dp))
-        Divider()
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = "Product Details",
-            color = GrayDarkColor,
-            fontSize = 18.sp,
-            fontFamily = RobotoFontFamily,
-            fontWeight = FontWeight(700)
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            text = detail.description,
-            color = GrayMediumColor,
-            fontSize = 16.sp,
-            fontFamily = RobotoFontFamily,
-            fontWeight = FontWeight(400)
-        )
+        Row(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "Add to cart",
+                modifier = Modifier.clickable {
+
+                }.background(ColorPrimary).padding(vertical = 10.dp),
+                fontFamily = RobotoFontFamily,
+                fontSize = 18.sp,
+                fontWeight = FontWeight(700),
+                color = Color.White
+            )
+        }
     }
+
 }
