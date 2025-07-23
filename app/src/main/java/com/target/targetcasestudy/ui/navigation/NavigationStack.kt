@@ -37,7 +37,7 @@ fun NavigationStack(
         ) {
             val dealDetailViewModel: DealDetailViewModel = hiltViewModel()
             dealDetailViewModel.init(it.arguments?.getString("id"))
-            DealDetailScreen(dealDetailViewModel.state)
+            DealDetailScreen(dealDetailViewModel.state, navController)
         }
     }
 }
