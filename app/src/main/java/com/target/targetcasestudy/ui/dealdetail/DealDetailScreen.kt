@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
@@ -100,7 +101,7 @@ fun DetailSuccessState(detail: DealDetail) {
     Column(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
-                .fillMaxSize(1f)
+                .weight(1f)
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState())
         ) {
@@ -168,15 +169,15 @@ fun DetailSuccessState(detail: DealDetail) {
         Row(modifier = Modifier.padding(16.dp)) {
             Text(
                 text = "Add to cart",
-                modifier = Modifier.clickable {
+                modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(4.dp)).clickable {
 
                 }.background(ColorPrimary).padding(vertical = 10.dp),
                 fontFamily = RobotoFontFamily,
                 fontSize = 18.sp,
                 fontWeight = FontWeight(700),
-                color = Color.White
+                color = Color.White,
+                textAlign = TextAlign.Center
             )
         }
     }
-
 }
