@@ -1,5 +1,6 @@
 package com.target.targetcasestudy.ui.deals
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,6 +37,7 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.target.targetcasestudy.domain.Result
 import com.target.targetcasestudy.domain.model.Deal
+import com.target.targetcasestudy.ui.navigation.Screen
 import com.target.targetcasestudy.ui.theme.ColorAccent
 import com.target.targetcasestudy.ui.theme.ColorPrimary
 import com.target.targetcasestudy.ui.theme.ColorPrimaryDark
@@ -67,7 +69,7 @@ fun DealListScreen(
                         modifier = modifier,
                     ) {
                         itemsIndexed(state.deals.data) { index, deal ->
-                            Deal(deal)
+                            Deal(deal, navController)
                         }
                     }
                 } ?: run {
@@ -98,15 +100,22 @@ fun ErrorState(message: String) {
         modifier = Modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = message)
+        Text(text = message, fontSize = 16.sp, color = GrayDarkColor)
     }
 }
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun Deal(dealItem: Deal) {
+fun Deal(dealItem: Deal, navController: NavController) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .clickable(
+                onClick = {
+                    navController.navigate("${Screen.DealDetail.route}?id=${dealItem.id}")
+                }
+            ),
         verticalAlignment = Alignment.CenterVertically
     ) {
         GlideImage(

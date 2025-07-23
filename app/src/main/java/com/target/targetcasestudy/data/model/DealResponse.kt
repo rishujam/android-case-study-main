@@ -13,6 +13,6 @@ data class DealResponse(
     @Json(name = "regular_price")
     val regularPrice: PriceDto,
     @Json(name = "sale_price")
-    val salePrice: PriceDto,
+    val salePrice: PriceDto?,
     val title: String
 )

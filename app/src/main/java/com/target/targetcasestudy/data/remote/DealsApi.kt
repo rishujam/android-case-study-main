@@ -11,7 +11,7 @@ interface DealsApi {
     @GET("deals")
     suspend fun getDeals(): Response<DealsResponse>
 
-    @GET("/deals/{dealId}")
+    @GET("deals/{dealId}")
     suspend fun getDeal(@Path("dealId") dealId: String): Response<DealResponse>
 
 }

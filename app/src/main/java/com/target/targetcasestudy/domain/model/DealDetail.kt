@@ -8,6 +8,6 @@ data class DealDetail(
     val id: Int,
     val imageUrl: String,
     val regularPrice: Price,
-    val salePrice: Price,
+    val salePrice: Price?,
     val title: String
 )

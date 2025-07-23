@@ -26,6 +26,9 @@ fun DealsResponse.toDeals(): List<Deal> {
 }
 
 fun DealResponse.toDealDetail(): DealDetail {
+    val salePrice = this.salePrice?.let {
+        Price(displayString = it.displayString)
+    }
     return DealDetail(
         aisle = this.aisle,
         availability = this.availability,
@@ -34,7 +37,7 @@ fun DealResponse.toDealDetail(): DealDetail {
         id = this.id,
         imageUrl = this.imageUrl,
         regularPrice = Price(displayString = this.regularPrice.displayString),
-        salePrice = Price(displayString = this.salePrice.displayString),
+        salePrice = salePrice,
         title = this.title
     )
 }
